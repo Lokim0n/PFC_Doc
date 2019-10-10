@@ -1,0 +1,214 @@
+%Plantilla basada en "Template for Masters / Doctoral Thesis" (plantilla disponible en writeLaTex) que subió LaTeXTemplates.com
+
+\documentclass[11pt,letterpaper]{book}
+\usepackage[paperwidth=21.6cm, paperheight=27.9cm, bottom=2.5cm, right=3.5cm]{geometry}
+
+\usepackage{amssymb,amsmath,amsthm} %paquete para símbolo matemáticos
+\usepackage[spanish, mexico]{babel}
+\usepackage[utf8]{inputenc} %Paquete para escribir acentos y otros símbolos directamente
+%------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{{Images/}} %En qué carpeta están las imágenes
+\usepackage[export]{adjustbox} %ajustar posicion de imagen
+%--------------- TABLAS ---------------
+\usepackage{multirow}
+\usepackage{tocloft} %especificar typografia de tablas 
+%--------------- ENUMERACION ---------------
+\usepackage{enumerate}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\setcounter{secnumdepth}{3} % para que ponga 1.1.1.1..
+\setcounter{tocdepth}{4} % para que añadir las secciones en el índice...
+%--------------- BIBLIOGRAFÍA ---------------
+%bibliografía como capitulo
+%\usepackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
+%--------------- CITAS ---------------
+%\usepackage{natbib}
+\usepackage{apacite}
+\bibliographystyle{apacite}
+%\usepackage{apalike}
+%\bibliographystyle{apalike}
+%--------------- ALINEACIÓN ---------------
+\usepackage{setspace}
+%------------------------------
+\usepackage{capt-of} %This package defines an alternative command, \captionof
+\usepackage{emptypage} % Remove page numbers on empty pages 
+\usepackage{lipsum} % Add dummy text:
+%\usepackage{subfig} %para poner subfiguras
+%--------------- GRÁFICA ---------------
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+%--------------- TÍTULOS ---------------
+\usepackage{tikz}
+\usepackage{titlesec}
+%--------------- HYPERREF ---------------
+\usepackage[pdftex,
+            pdfauthor={NOMBRE DEL AUTOR},
+            pdftitle={TÍTULO DE LA TESIS},
+            pdfsubject={ÁREA DE LA TESIS},
+            pdfkeywords={PALABRAS CLAVE},
+            pdfproducer={Latex con hyperref},
+            pdfcreator={pdflatex}]{hyperref}
+%------------------------------
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%SOLO IMPRIME MES Y AÑO
+  \monthname[\THEMONTH] \THEYEAR}
+  
+\addto\captionsspanish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}{Índice General}
+  \renewcommand{\listtablename}{Índice de Tablas}
+  \renewcommand{\tablename}{Tabla}
+  \renewcommand{\listfigurename}{Índice de Figuras}\renewcommand{\figurename}{Figura}
+}
+
+%------------------------------------------------------------------------------------------
+%   DISEÑO ENCABEZADOS 
+%------------------------------------------------------------------------------------------
+
+%--------------- CHAPTER ---------------
+%\titleformat{\chapter}[frame]{\normalfont}%
+    %{\filright\footnotesize\enspace CAPITULO \thechapter\enspace}%
+    %{8pt}{\Large\bfseries\filcenter}%
+
+%--------------- SECTION ---------------
+\titleformat{\section}[frame]{\normalfont}%
+    {\filright\footnotesize\enspace SECCIÓN \thesection\enspace}% 
+    {8pt}{\Large\bfseries\filcenter}%
+
+%----------------------------------------------------------------------------------------
+%	PORTADA
+%----------------------------------------------------------------------------------------
+\begin{document}
+\newpage
+\thispagestyle{empty}
+
+	\begin{minipage}[c][0.2\textheight][c]{0.2\textwidth}
+		\begin{center}
+			\includegraphics[height=3cm]{Images/Logo_uaeh.png}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[c][0.1\textheight][t]{0.65\textwidth}
+		\begin{center}
+			{\scshape Universidad Autónoma del Estado de Hidalgo}
+			\vspace{.3cm}
+			\hrule height2.5pt
+			\vspace{.1cm}
+			\hrule height1pt
+			\vspace{.3cm}
+			{\scshape Instituto de Ciencias Básicas e Ingeniería}
+			\vspace{.3cm}
+			{\scshape Área Académica de Computación y Electrónica}
+			\vspace{.3cm}
+			{\scshape Licenciatura en Ciencias Computacionales}
+		\end{center}
+	\end{minipage}
+	
+	\begin{minipage}[c][0.7\textheight][t]{0.2\textwidth}
+		\begin{center}
+			\hskip2pt
+			\vrule width2.5pt height13cm
+			\hskip1mm
+			\vrule width1pt height13cm
+		\end{center}
+	\end{minipage}
+	\begin{minipage}[c][0.6\textheight][t]{0.65\textwidth}
+		\begin{center}
+			{\Large\scshape{Desarrollo tecnológico para la gestión y envió de solicitudes remotas para el UniCafe}\textsuperscript{®}}\\
+			\vspace{1.25cm}
+            \rule{\linewidth}{0.25 mm}\\[10pt]
+			\makebox[4.75cm][c]{\LARGE PROTOCOLO DE PROYECTO TERMINAL}\\[6pt]
+			QUE PARA OBTENER EL TÍTULO DE:\\[6pt]
+			{\large \textbf{{Licenciado en Ciencias Computacionales}}}\\
+			%\vspace{.25cm}
+            \rule{\linewidth}{0.25 mm}\\[45pt]
+			PRESENTA:\\[3pt]
+			\textbf{Andrés Ricaño César}\\
+			\vspace{1cm}
+			\small{Asesor(a):\\{Mtra. Norma Laura Salazar Viveros}}
+			\end{center}
+			\vspace{1cm}
+			\raggedleft{\t Mineral de La Reforma, Hidalgo, México}\\{\monthyeardate\today}
+	\end{minipage}
+	%\clearpage\hbox{}\thispagestyle{empty}\newpage
+\include{Capitulos/0.1_Resumen}
+\include{Capitulos/0.2_Abstract}
+\newpage
+\thispagestyle{empty}
+%%\LARGE{Abstract}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATORIA
+%----------------------------------------------------------------------------------------
+
+%\pagestyle{empty}
+%\frontmatter
+
+%\chapter*{}
+%\begin{flushright}
+%\textit{DEDICATORIA}
+%\end{flushright}
+
+
+%----------------------------------------------------------------------------------------
+%	AGRADECIMIENTOS
+%----------------------------------------------------------------------------------------
+
+%\chapter*{Agradecimientos}
+%\markboth{AGRADECIMIENTOS23}{AGRADECIMIENTOS} % encabezado 
+
+%¡Muchas gracias a todos!
+
+%----------------------------------------------------------------------------------------
+%	TABLA DE CONTENIDOS
+%---------------------------------------------------------------------------------------
+
+\pagenumbering{roman}
+\begin{large}
+    \tableofcontents
+    \newpage
+    \listoffigures
+    \newpage
+    \listoftables
+    \newpage 
+\end{large}
+\cleardoublepage
+\pagenumbering{arabic}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	TESIS
+%----------------------------------------------------------------------------------------
+%\mainmatter %empieza la numeración de las páginas
+
+%  Incluye los capítulos en el folder de capítulos
+\include{Capitulos/0.3_Introduccion}
+\include{Capitulos/1._Planteamiento}
+\include{Capitulos/2._Fundamentos}
+\include{Capitulos/3._Desarrollo}
+\include{Capitulos/4._Implementacion}
+\include{Capitulos/5._Resultados}
+\include{Capitulos/6._Conclusiones}
+\thispagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%	APÉNDICES
+%----------------------------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace{2em}} % Agrega espacios en la toc
+
+\appendix % Los siguientes capítulos son apéndices
+
+%  Incluye los apéndices en el folder de apéndices
+
+\include{Apendice/Apendix.tex}
+\thispagestyle{empty}
+
+%\addtocontents{toc}{\vspace{2em}} % Agrega espacio en la toc
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAFÍA
+%----------------------------------------------------------------------------------------
+%\backmatter
+%%\nocite{*}
+\bibliography{bibliografia.bib} %Aquí ponen el nombre del archivo .bib
+\end{document}
